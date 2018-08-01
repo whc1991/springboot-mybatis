@@ -31,4 +31,5 @@ public class CityServiceImpl implements CityService{
 
         return cityMapper.selectAllCitys();
     }
+
 }
