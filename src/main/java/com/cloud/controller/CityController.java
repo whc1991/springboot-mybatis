@@ -41,4 +41,10 @@ public class CityController {
          return new PageInfo<City>(citys);
 
     }
+    @RequestMapping("/alls")
+    public PageInfo<City> selectAlls(){
+        List<City> citys = cityService.findAll(1,10);
+        return new PageInfo<City>(citys);
+
+    }
 }
