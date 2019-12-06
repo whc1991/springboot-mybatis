@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by wanghc on 2018/6/22.
  */
-@Service
+//@Service
 @Slf4j
 public class CityServiceImpl implements CityService{
 
