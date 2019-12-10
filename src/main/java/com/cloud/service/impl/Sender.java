@@ -1,15 +1,15 @@
 package com.cloud.service.impl;
 
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
+/*import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component;*/
 
 import java.util.Date;
 
 /**
  *
  */
-@Component
+/*@Component
 public class Sender {
 
     @Autowired
@@ -20,4 +20,4 @@ public class Sender {
         System.out.println("context : " + context);
         this.rabbitTemplate.convertAndSend("hello", context);
     }
-}
+}*/

@@ -10,7 +10,7 @@ import java.util.List;
 public interface CityMapper extends BaseMapper<City>{
 
 
-    public City findByName(@Param("name") String name);
+    City findByName(@Param("name") String name);
 
     List<City> selectAllCitys();
 

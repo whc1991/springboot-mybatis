@@ -1,14 +1,14 @@
 package com.cloud.service.impl;
 
-import org.springframework.amqp.rabbit.annotation.RabbitHandler;
+/*import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component;*/
 
 /**
  *
  *
  */
-@Component
+/*@Component
 public class Receiver2 {
 
 
@@ -18,4 +18,4 @@ public class Receiver2 {
 //        throw new Exception("人为异常");
         System.out.println("Receiver2 : " + message);
     }
-}
+}*/

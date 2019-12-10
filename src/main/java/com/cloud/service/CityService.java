@@ -9,7 +9,7 @@ import java.util.List;
  */
 public interface CityService {
 
-    public City findByName(String name);
+    City findByName(String name);
 
-    public List<City> findAll(int pageNum,int pageSize);
+    List<City> findAll(int pageNum,int pageSize);
 }
