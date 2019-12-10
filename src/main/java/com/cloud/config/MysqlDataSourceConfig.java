@@ -17,8 +17,8 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 
 
-//@Configuration
-//@MapperScan(basePackages = "com.cloud.dao", sqlSessionFactoryRef="mysqlSessionFactory")
+@Configuration
+@MapperScan(basePackages = "com.cloud.dao", sqlSessionFactoryRef="mysqlSessionFactory")
 public class MysqlDataSourceConfig {
 
     /**

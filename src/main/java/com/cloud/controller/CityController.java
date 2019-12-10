@@ -15,7 +15,7 @@ import java.util.Map;
 /**
  * Created by wanghc on 2018/6/22.
  */
-//@RestController
+@RestController
 @RequestMapping("/city")
 public class CityController {
     @Autowired
