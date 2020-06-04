@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.dao.ClExamineLastMapper" >
+  <resultMap id="BaseResultMap" type="com.cloud.domain.ClExamineLast" >
+    <id column="EXAMINE_SEQ" property="examineSeq" jdbcType="INTEGER" />
+    <result column="ORDER_CDE" property="orderCde" jdbcType="VARCHAR" />
+    <result column="EXAMINE_RESULT" property="examineResult" jdbcType="VARCHAR" />
+    <result column="CRDTEXT_AMT" property="crdtextAmt" jdbcType="DECIMAL" />
+    <result column="LAST_EXMINE_TIME" property="lastExmineTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_WITHDRAWAL_TIME" property="lastWithdrawalTime" jdbcType="TIMESTAMP" />
+    <result column="CRT_DT" property="crtDt" jdbcType="TIMESTAMP" />
+    <result column="MDF_DT" property="mdfDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    EXAMINE_SEQ, ORDER_CDE, EXAMINE_RESULT, CRDTEXT_AMT, LAST_EXMINE_TIME, LAST_WITHDRAWAL_TIME, 
+    CRT_DT, MDF_DT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cl_examine_last
+    where EXAMINE_SEQ = #{examineSeq,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cl_examine_last
+    where EXAMINE_SEQ = #{examineSeq,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cloud.domain.ClExamineLast" >
+    insert into cl_examine_last (EXAMINE_SEQ, ORDER_CDE, EXAMINE_RESULT, 
+      CRDTEXT_AMT, LAST_EXMINE_TIME, LAST_WITHDRAWAL_TIME, 
+      CRT_DT, MDF_DT)
+    values (#{examineSeq,jdbcType=INTEGER}, #{orderCde,jdbcType=VARCHAR}, #{examineResult,jdbcType=VARCHAR}, 
+      #{crdtextAmt,jdbcType=DECIMAL}, #{lastExmineTime,jdbcType=TIMESTAMP}, #{lastWithdrawalTime,jdbcType=TIMESTAMP}, 
+      #{crtDt,jdbcType=TIMESTAMP}, #{mdfDt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cloud.domain.ClExamineLast" >
+    insert into cl_examine_last
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="examineSeq != null" >
+        EXAMINE_SEQ,
+      </if>
+      <if test="orderCde != null" >
+        ORDER_CDE,
+      </if>
+      <if test="examineResult != null" >
+        EXAMINE_RESULT,
+      </if>
+      <if test="crdtextAmt != null" >
+        CRDTEXT_AMT,
+      </if>
+      <if test="lastExmineTime != null" >
+        LAST_EXMINE_TIME,
+      </if>
+      <if test="lastWithdrawalTime != null" >
+        LAST_WITHDRAWAL_TIME,
+      </if>
+      <if test="crtDt != null" >
+        CRT_DT,
+      </if>
+      <if test="mdfDt != null" >
+        MDF_DT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="examineSeq != null" >
+        #{examineSeq,jdbcType=INTEGER},
+      </if>
+      <if test="orderCde != null" >
+        #{orderCde,jdbcType=VARCHAR},
+      </if>
+      <if test="examineResult != null" >
+        #{examineResult,jdbcType=VARCHAR},
+      </if>
+      <if test="crdtextAmt != null" >
+        #{crdtextAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastExmineTime != null" >
+        #{lastExmineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastWithdrawalTime != null" >
+        #{lastWithdrawalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crtDt != null" >
+        #{crtDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdfDt != null" >
+        #{mdfDt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cloud.domain.ClExamineLast" >
+    update cl_examine_last
+    <set >
+      <if test="orderCde != null" >
+        ORDER_CDE = #{orderCde,jdbcType=VARCHAR},
+      </if>
+      <if test="examineResult != null" >
+        EXAMINE_RESULT = #{examineResult,jdbcType=VARCHAR},
+      </if>
+      <if test="crdtextAmt != null" >
+        CRDTEXT_AMT = #{crdtextAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="lastExmineTime != null" >
+        LAST_EXMINE_TIME = #{lastExmineTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastWithdrawalTime != null" >
+        LAST_WITHDRAWAL_TIME = #{lastWithdrawalTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crtDt != null" >
+        CRT_DT = #{crtDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdfDt != null" >
+        MDF_DT = #{mdfDt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where EXAMINE_SEQ = #{examineSeq,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cloud.domain.ClExamineLast" >
+    update cl_examine_last
+    set ORDER_CDE = #{orderCde,jdbcType=VARCHAR},
+      EXAMINE_RESULT = #{examineResult,jdbcType=VARCHAR},
+      CRDTEXT_AMT = #{crdtextAmt,jdbcType=DECIMAL},
+      LAST_EXMINE_TIME = #{lastExmineTime,jdbcType=TIMESTAMP},
+      LAST_WITHDRAWAL_TIME = #{lastWithdrawalTime,jdbcType=TIMESTAMP},
+      CRT_DT = #{crtDt,jdbcType=TIMESTAMP},
+      MDF_DT = #{mdfDt,jdbcType=TIMESTAMP}
+    where EXAMINE_SEQ = #{examineSeq,jdbcType=INTEGER}
+  </update>
+</mapper>

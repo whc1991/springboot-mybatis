@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cloud.dao.ClUsrAmtMapper" >
+  <resultMap id="BaseResultMap" type="com.cloud.domain.ClUsrAmt" >
+    <id column="CRDTEXT_SEQ" property="crdtextSeq" jdbcType="INTEGER" />
+    <result column="ORDER_CDE" property="orderCde" jdbcType="VARCHAR" />
+    <result column="LOAN_CONTRACT_CDE" property="loanContractCde" jdbcType="VARCHAR" />
+    <result column="APPLY_AMT" property="applyAmt" jdbcType="DECIMAL" />
+    <result column="APPLY_TNR" property="applyTnr" jdbcType="VARCHAR" />
+    <result column="TOTAL_COVERAGE" property="totalCoverage" jdbcType="DECIMAL" />
+    <result column="TOTAL_COVERAGE_FEE" property="totalCoverageFee" jdbcType="DECIMAL" />
+    <result column="TNR_COVERAGE_FEE" property="tnrCoverageFee" jdbcType="DECIMAL" />
+    <result column="TOTAL_INTEREST" property="totalInterest" jdbcType="DECIMAL" />
+    <result column="POLICY_NO" property="policyNo" jdbcType="VARCHAR" />
+    <result column="POLICY_SIGN_DT" property="policySignDt" jdbcType="TIMESTAMP" />
+    <result column="LEND_STATUS" property="lendStatus" jdbcType="VARCHAR" />
+    <result column="SMS_SEND_STATUS" property="smsSendStatus" jdbcType="VARCHAR" />
+    <result column="FLOW_ID" property="flowId" jdbcType="VARCHAR" />
+    <result column="ACCEPT_TIME" property="acceptTime" jdbcType="VARCHAR" />
+    <result column="CRT_DT" property="crtDt" jdbcType="TIMESTAMP" />
+    <result column="MDF_DT" property="mdfDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CRDTEXT_SEQ, ORDER_CDE, LOAN_CONTRACT_CDE, APPLY_AMT, APPLY_TNR, TOTAL_COVERAGE, 
+    TOTAL_COVERAGE_FEE, TNR_COVERAGE_FEE, TOTAL_INTEREST, POLICY_NO, POLICY_SIGN_DT, 
+    LEND_STATUS, SMS_SEND_STATUS, FLOW_ID, ACCEPT_TIME, CRT_DT, MDF_DT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cl_usr_amt
+    where CRDTEXT_SEQ = #{crdtextSeq,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cl_usr_amt
+    where CRDTEXT_SEQ = #{crdtextSeq,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cloud.domain.ClUsrAmt" >
+    insert into cl_usr_amt (CRDTEXT_SEQ, ORDER_CDE, LOAN_CONTRACT_CDE, 
+      APPLY_AMT, APPLY_TNR, TOTAL_COVERAGE, 
+      TOTAL_COVERAGE_FEE, TNR_COVERAGE_FEE, TOTAL_INTEREST, 
+      POLICY_NO, POLICY_SIGN_DT, LEND_STATUS, 
+      SMS_SEND_STATUS, FLOW_ID, ACCEPT_TIME, 
+      CRT_DT, MDF_DT)
+    values (#{crdtextSeq,jdbcType=INTEGER}, #{orderCde,jdbcType=VARCHAR}, #{loanContractCde,jdbcType=VARCHAR}, 
+      #{applyAmt,jdbcType=DECIMAL}, #{applyTnr,jdbcType=VARCHAR}, #{totalCoverage,jdbcType=DECIMAL}, 
+      #{totalCoverageFee,jdbcType=DECIMAL}, #{tnrCoverageFee,jdbcType=DECIMAL}, #{totalInterest,jdbcType=DECIMAL}, 
+      #{policyNo,jdbcType=VARCHAR}, #{policySignDt,jdbcType=TIMESTAMP}, #{lendStatus,jdbcType=VARCHAR}, 
+      #{smsSendStatus,jdbcType=VARCHAR}, #{flowId,jdbcType=VARCHAR}, #{acceptTime,jdbcType=VARCHAR}, 
+      #{crtDt,jdbcType=TIMESTAMP}, #{mdfDt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cloud.domain.ClUsrAmt" >
+    insert into cl_usr_amt
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="crdtextSeq != null" >
+        CRDTEXT_SEQ,
+      </if>
+      <if test="orderCde != null" >
+        ORDER_CDE,
+      </if>
+      <if test="loanContractCde != null" >
+        LOAN_CONTRACT_CDE,
+      </if>
+      <if test="applyAmt != null" >
+        APPLY_AMT,
+      </if>
+      <if test="applyTnr != null" >
+        APPLY_TNR,
+      </if>
+      <if test="totalCoverage != null" >
+        TOTAL_COVERAGE,
+      </if>
+      <if test="totalCoverageFee != null" >
+        TOTAL_COVERAGE_FEE,
+      </if>
+      <if test="tnrCoverageFee != null" >
+        TNR_COVERAGE_FEE,
+      </if>
+      <if test="totalInterest != null" >
+        TOTAL_INTEREST,
+      </if>
+      <if test="policyNo != null" >
+        POLICY_NO,
+      </if>
+      <if test="policySignDt != null" >
+        POLICY_SIGN_DT,
+      </if>
+      <if test="lendStatus != null" >
+        LEND_STATUS,
+      </if>
+      <if test="smsSendStatus != null" >
+        SMS_SEND_STATUS,
+      </if>
+      <if test="flowId != null" >
+        FLOW_ID,
+      </if>
+      <if test="acceptTime != null" >
+        ACCEPT_TIME,
+      </if>
+      <if test="crtDt != null" >
+        CRT_DT,
+      </if>
+      <if test="mdfDt != null" >
+        MDF_DT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="crdtextSeq != null" >
+        #{crdtextSeq,jdbcType=INTEGER},
+      </if>
+      <if test="orderCde != null" >
+        #{orderCde,jdbcType=VARCHAR},
+      </if>
+      <if test="loanContractCde != null" >
+        #{loanContractCde,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmt != null" >
+        #{applyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="applyTnr != null" >
+        #{applyTnr,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCoverage != null" >
+        #{totalCoverage,jdbcType=DECIMAL},
+      </if>
+      <if test="totalCoverageFee != null" >
+        #{totalCoverageFee,jdbcType=DECIMAL},
+      </if>
+      <if test="tnrCoverageFee != null" >
+        #{tnrCoverageFee,jdbcType=DECIMAL},
+      </if>
+      <if test="totalInterest != null" >
+        #{totalInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="policyNo != null" >
+        #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policySignDt != null" >
+        #{policySignDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lendStatus != null" >
+        #{lendStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="smsSendStatus != null" >
+        #{smsSendStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null" >
+        #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="crtDt != null" >
+        #{crtDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdfDt != null" >
+        #{mdfDt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cloud.domain.ClUsrAmt" >
+    update cl_usr_amt
+    <set >
+      <if test="orderCde != null" >
+        ORDER_CDE = #{orderCde,jdbcType=VARCHAR},
+      </if>
+      <if test="loanContractCde != null" >
+        LOAN_CONTRACT_CDE = #{loanContractCde,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmt != null" >
+        APPLY_AMT = #{applyAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="applyTnr != null" >
+        APPLY_TNR = #{applyTnr,jdbcType=VARCHAR},
+      </if>
+      <if test="totalCoverage != null" >
+        TOTAL_COVERAGE = #{totalCoverage,jdbcType=DECIMAL},
+      </if>
+      <if test="totalCoverageFee != null" >
+        TOTAL_COVERAGE_FEE = #{totalCoverageFee,jdbcType=DECIMAL},
+      </if>
+      <if test="tnrCoverageFee != null" >
+        TNR_COVERAGE_FEE = #{tnrCoverageFee,jdbcType=DECIMAL},
+      </if>
+      <if test="totalInterest != null" >
+        TOTAL_INTEREST = #{totalInterest,jdbcType=DECIMAL},
+      </if>
+      <if test="policyNo != null" >
+        POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="policySignDt != null" >
+        POLICY_SIGN_DT = #{policySignDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lendStatus != null" >
+        LEND_STATUS = #{lendStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="smsSendStatus != null" >
+        SMS_SEND_STATUS = #{smsSendStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="flowId != null" >
+        FLOW_ID = #{flowId,jdbcType=VARCHAR},
+      </if>
+      <if test="acceptTime != null" >
+        ACCEPT_TIME = #{acceptTime,jdbcType=VARCHAR},
+      </if>
+      <if test="crtDt != null" >
+        CRT_DT = #{crtDt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mdfDt != null" >
+        MDF_DT = #{mdfDt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where CRDTEXT_SEQ = #{crdtextSeq,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cloud.domain.ClUsrAmt" >
+    update cl_usr_amt
+    set ORDER_CDE = #{orderCde,jdbcType=VARCHAR},
+      LOAN_CONTRACT_CDE = #{loanContractCde,jdbcType=VARCHAR},
+      APPLY_AMT = #{applyAmt,jdbcType=DECIMAL},
+      APPLY_TNR = #{applyTnr,jdbcType=VARCHAR},
+      TOTAL_COVERAGE = #{totalCoverage,jdbcType=DECIMAL},
+      TOTAL_COVERAGE_FEE = #{totalCoverageFee,jdbcType=DECIMAL},
+      TNR_COVERAGE_FEE = #{tnrCoverageFee,jdbcType=DECIMAL},
+      TOTAL_INTEREST = #{totalInterest,jdbcType=DECIMAL},
+      POLICY_NO = #{policyNo,jdbcType=VARCHAR},
+      POLICY_SIGN_DT = #{policySignDt,jdbcType=TIMESTAMP},
+      LEND_STATUS = #{lendStatus,jdbcType=VARCHAR},
+      SMS_SEND_STATUS = #{smsSendStatus,jdbcType=VARCHAR},
+      FLOW_ID = #{flowId,jdbcType=VARCHAR},
+      ACCEPT_TIME = #{acceptTime,jdbcType=VARCHAR},
+      CRT_DT = #{crtDt,jdbcType=TIMESTAMP},
+      MDF_DT = #{mdfDt,jdbcType=TIMESTAMP}
+    where CRDTEXT_SEQ = #{crdtextSeq,jdbcType=INTEGER}
+  </update>
+</mapper>

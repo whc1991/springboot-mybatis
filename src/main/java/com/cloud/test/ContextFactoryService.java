@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 @Slf4j
-@Component
+@Service
 public class ContextFactoryService {
 
     @Autowired
@@ -23,7 +23,7 @@ public class ContextFactoryService {
         try {
             return applicationContext.getBean(type + serviceName);
         } catch (Exception e) {
-            log.error("{}，通过ApplicationContext获取Bean失败，type = {}, serviceName = {}", type, serviceName);
+            log.error("通过ApplicationContext获取Bean失败，type = {}, serviceName = {}", type, serviceName);
             throw e;
         }
 
@@ -34,7 +34,7 @@ public class ContextFactoryService {
         try {
             return applicationContext.getBean(serviceName);
         } catch (Exception e) {
-            log.error("{}，通过ApplicationContext获取Bean失败, serviceName = {}", serviceName);
+            log.error("通过ApplicationContext获取Bean失败, serviceName = {}", serviceName);
             throw e;
         }
     }
