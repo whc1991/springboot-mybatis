@@ -1,7 +1,6 @@
 package com.cloud.test.strategyPattern;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 /**
  * @description: 龙江银行提现策略实现类

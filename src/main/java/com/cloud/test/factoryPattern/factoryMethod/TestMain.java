@@ -2,9 +2,6 @@ package com.cloud.test.factoryPattern.factoryMethod;
 
 import com.cloud.test.factoryPattern.simpleFactoryPattern.Operator;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class TestMain {
 
     public static void main(String[] args) {

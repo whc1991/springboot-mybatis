@@ -3,7 +3,6 @@ package com.cloud.test;
 import java.util.concurrent.Callable;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.FutureTask;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class CountDownLatchTest {
 
